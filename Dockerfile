@@ -5,10 +5,13 @@ WORKDIR ${ROOT}
 
 RUN echo "Update apt" && \
   apt update && apt upgrade -y git
+	
 
+RUN git clone https://github.com/kwaroran/RisuAI.git ./ && \
+  mkdir "data" && mkdir "save" && \
+ 	ls -s "data" "save"
+	
 COPY . ./
-
-RUN mkdir "data" && mkdir "save" && ls -s "data" "save"
 
 RUN chmod +x server.sh entrypoint.sh
 EXPOSE 6001
