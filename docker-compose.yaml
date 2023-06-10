@@ -1,0 +1,14 @@
+version: "3"
+services:
+  RisuAI:
+    build: .
+    container_name: risuai
+    image: risuai/risuai:latest
+    environment:
+      - PULL_GIT=true
+    ports:
+      - "6001:6001"
+    volumes:
+      - data:/app/save
+    restart: unless-stopped
+
